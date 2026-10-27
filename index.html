@@ -437,5 +437,21 @@
             });
         });
     </script>
+    <style>
+/* 防止選取文字及停用圖片點擊 */
+body {
+  -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; -webkit-touch-callout: none;
+}
+img { pointer-events: none; }
+</style>
+<script>
+// 封鎖右鍵及常用複製快捷鍵
+document.addEventListener('contextmenu', event => event.preventDefault());
+document.addEventListener('keydown', function(e) {
+  if ((e.ctrlKey || e.metaKey) && (e.key === 'c' || e.key === 's' || e.key === 'u' || e.key === 'p' || e.key === 'a')) {
+    e.preventDefault();
+  }
+});
+</script>
 </body>
 </html>
